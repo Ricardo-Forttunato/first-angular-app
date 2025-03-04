@@ -1,18 +1,5 @@
 import { Component, computed, Input, input, Output, EventEmitter, output} from '@angular/core';
-
-// Using Type feature from typescritp to define the User type
-// type User = {
-//   id: string,
-//   name: string,
-//   avatar: string,
-// }
-
-// Using Interface feature from typescritp to define the User type
-interface User {
-  id: string,
-  name: string,
-  avatar: string,
-}
+import { type User } from './user.model';
 
 @Component({
   selector: 'app-user',
@@ -31,7 +18,7 @@ export class UserComponent {
   // @Input({required: true}) id!: string;
 
   @Input({required: true}) user!:User;
-  
+  @Input({required: true}) selected = false;
   @Output() select = new EventEmitter<string>();  // With output decoretor
   // select = output<string>()  // with output function, this output function work in the same way as the Output decorator but without declaring a new EventEmitter, because it is already declared in the output function body. 
 
